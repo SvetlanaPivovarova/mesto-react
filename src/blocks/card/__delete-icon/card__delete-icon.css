@@ -1,0 +1,17 @@
+.card__delete-icon {
+    background-image: url(../../../images/Trash_delete_icon.svg);
+    width: 18px;
+    height: 19px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1;
+    grid-row: 2/3;
+    grid-column: 2/3;
+    opacity: 1;
+    transition: opacity .3s ease;
+}
+
+.card__delete-icon:hover {
+    opacity: .6;
+}

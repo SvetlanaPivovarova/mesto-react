@@ -1,0 +1,10 @@
+.form__error {
+    color: rgba(255, 0, 0, 1);
+    font-size: 12px;
+    line-height: 15px;
+    margin-top: 3px;
+    min-height: 32px;
+    box-sizing: border-box;
+    visibility: hidden;
+    display: inline-block;
+}

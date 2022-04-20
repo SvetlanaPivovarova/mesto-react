@@ -1,0 +1,25 @@
+.content__section {
+    width: 100%;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 1140px) {
+    .content__section {
+        margin-right: 100px;
+        margin-left: 100px;
+    } 
+ }
+
+@media screen and (max-width: 880px) {
+    .content__section {
+        margin-right: 19px;
+        margin-left: 19px;
+    } 
+}
+
+@media screen and (max-width: 568px) {
+    .content__section {
+        margin-right: 0;
+        margin-left: 0;
+    }
+}

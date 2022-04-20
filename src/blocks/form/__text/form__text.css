@@ -1,0 +1,18 @@
+.form__text {
+    border: 0;
+    width: 358px;
+    box-sizing: border-box;
+    border-bottom: 1px solid rgba(0, 0, 0, .2);
+    background-color: transparent;
+    margin-top: 0;
+    font-size: 14px;
+    line-height: 17px;
+    color: #000;
+    font-family: inherit;
+}
+
+@media screen and (max-width: 568px) {
+    .form__text {
+        width: 238px;
+    }
+}
