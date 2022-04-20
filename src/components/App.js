@@ -1,33 +1,14 @@
 import React from 'react';
-import logoHeader from '../../images/Vector_logo.svg'; // Путь к изображению внутри сборки
+import Header from './Header';
+import Main from "./Main";
+import Footer from "./Footer";
 
 function App() {
   return (
-
       <body className="page">
-      <header className="header page__content">
-        <img className="header__logo" src={logoHeader} alt="Логотип сайта"/>
-      </header>
-      <main className="content">
-        <section className="profile content__section">
-          <button className="profile__avatar-edit" type="button" aria-label="Редактировать аватар">
-            <div className="profile__avatar-overlay"></div>
-            <img className="profile__avatar-image" src="<%=require('./images/image_kusto.jpg')%>"
-                 alt="Фотография пользователя"/>
-          </button>
-          <div className="profile__info">
-            <h1 className="profile__name">Жак Ив Кусто</h1>
-            <button className="profile__edit-button" type="button" aria-label="Редактировать профиль"></button>
-            <p className="profile__profession">Исследователь океана</p>
-          </div>
-          <button className="profile__add-button" type="button" aria-label="Добавить"></button>
-        </section>
-        <section className="elements content__section">
-        </section>
-      </main>
-      <footer className="footer">
-        <p className="footer__copyright">&copy; 2020 Mesto Russia</p>
-      </footer>
+        <Header />
+        <Main />
+        <Footer />
       <div className="popup popup_type_profile">
         <div className="popup__container">
           <h2 className="popup__title">Редактировать профиль</h2>
