@@ -4,11 +4,13 @@ import Main from "./Main";
 import Footer from "./Footer";
 
 function App() {
-  return (
+
+    return (
       <body className="page">
         <Header />
         <Main />
         <Footer />
+
       <div className="popup popup_type_profile">
         <div className="popup__container">
           <h2 className="popup__title">Редактировать профиль</h2>
