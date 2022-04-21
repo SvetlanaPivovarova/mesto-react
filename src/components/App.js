@@ -3,6 +3,7 @@ import Header from './Header';
 import Main from "./Main";
 import Footer from "./Footer";
 import PopupWithForm from "./PopupWithForm";
+import ImagePopup from "./ImagePopup";
 
 function App() {
 
@@ -68,14 +69,10 @@ function App() {
           <span id="avatar-error" className="form__error" />
         </PopupWithForm>
 
+        <ImagePopup />
 
-      <div className="popup popup_type_image">
-        <div className="popup__image-container">
-          <img className="popup__image-item" alt=""/>
-            <h2 className="popup__title popup__title_type_image-caption"/>
-            <button className="popup__close-btn" type="button" aria-label="Закрыть" />
-        </div>
-      </div>
+
+
       <div className="popup popup_type_delete-card">
         <div className="popup__container">
           <h2 className="popup__title popup__title_type_delete-window">Вы уверены?</h2>
