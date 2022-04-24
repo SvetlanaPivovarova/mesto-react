@@ -12,6 +12,8 @@ function App() {
 
     const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false);
 
+
+
     function handleEditAvatarClick() {
         setIsEditAvatarPopupOpen(true);
     }
@@ -22,6 +24,12 @@ function App() {
 
     const handleAddPlaceClick = () => {
         setIsAddPlacePopupOpen(true);
+    }
+    
+    const closeAllPopups = () => {
+        setIsEditAvatarPopupOpen(false);
+        setIsEditProfilePopupOpen(false);
+        setIsAddPlacePopupOpen(false);
     }
 
     return (
@@ -39,6 +47,7 @@ function App() {
             title={'Редактировать профиль'}
             submit={'Сохранить'}
             isOpen={isEditProfilePopupOpen? 'popup_opened' : ''}
+            isClose={closeAllPopups}
         >
           <input
               type="text"
@@ -68,6 +77,7 @@ function App() {
             title={'Новое место'}
             submit={'Создать'}
             isOpen={isAddPlacePopupOpen? 'popup_opened' : ''}
+            isClose={closeAllPopups}
         >
           <input
               type="text"
@@ -94,6 +104,7 @@ function App() {
             title={'Обновить аватар'}
             submit={'Сохранить'}
             isOpen={isEditAvatarPopupOpen? 'popup_opened' : ''}
+            isClose={closeAllPopups}
         >
           <input
               type="url"
