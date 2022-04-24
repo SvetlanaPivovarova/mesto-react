@@ -1,8 +1,8 @@
 import React from 'react';
 
-function PopupWithForm({name, title, submit, children}) {
+function PopupWithForm({name, title, submit, isOpen, children}) {
     return(
-        <div className={`popup popup_type_${name}`}>
+        <div className={`popup popup_type_${name} ${isOpen}`}>
             <div className="popup__container">
                 <h2 className="popup__title popup__title_type_delete-window">{title}</h2>
                 <button className="popup__close-btn" type="button" aria-label="Закрыть" />

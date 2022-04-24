@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Header from './Header';
 import Main from "./Main";
 import Footer from "./Footer";
@@ -6,14 +6,40 @@ import PopupWithForm from "./PopupWithForm";
 import ImagePopup from "./ImagePopup";
 
 function App() {
+    const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = React.useState(false);
+
+    const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
+
+    const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false);
+
+    function handleEditAvatarClick() {
+        setIsEditAvatarPopupOpen(true);
+    }
+
+    const handleEditProfileClick = () => {
+        setIsEditProfilePopupOpen(true);
+    }
+
+    const handleAddPlaceClick = () => {
+        setIsAddPlacePopupOpen(true);
+    }
 
     return (
-      <body className="page">
+      <div className="page">
         <Header />
-        <Main />
+        <Main
+            onEditProfile={handleEditProfileClick}
+            onAddPlace={handleAddPlaceClick}
+            onEditAvatar={handleEditAvatarClick}
+        />
         <Footer />
 
-        <PopupWithForm name={'profile'} title={'Редактировать профиль'} submit={'Сохранить'}>
+        <PopupWithForm
+            name={'profile'}
+            title={'Редактировать профиль'}
+            submit={'Сохранить'}
+            isOpen={isEditProfilePopupOpen? 'popup_opened' : ''}
+        >
           <input
               type="text"
               placeholder="Имя"
@@ -37,7 +63,12 @@ function App() {
           <span id="about-error" className="form__error"/>
         </PopupWithForm>
 
-        <PopupWithForm name={'card'} title={'Новое место'} submit={'Создать'}>
+        <PopupWithForm
+            name={'card'}
+            title={'Новое место'}
+            submit={'Создать'}
+            isOpen={isAddPlacePopupOpen? 'popup_opened' : ''}
+        >
           <input
               type="text"
               placeholder="Название"
@@ -58,7 +89,12 @@ function App() {
           <span id="link-error" className="form__error"/>
         </PopupWithForm>
 
-        <PopupWithForm name={'avatar'} title={'Обновить аватар'} submit={'Сохранить'}>
+        <PopupWithForm
+            name={'avatar'}
+            title={'Обновить аватар'}
+            submit={'Сохранить'}
+            isOpen={isEditAvatarPopupOpen? 'popup_opened' : ''}
+        >
           <input
               type="url"
               placeholder="Ссылка на новый аватар"
@@ -98,8 +134,7 @@ function App() {
           </div>
         </article>
       </template>
-      </body>
-
+      </div>
   );
 }
 
