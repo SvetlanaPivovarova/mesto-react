@@ -1,5 +1,6 @@
 import React from 'react';
 import {api} from "../utils/api";
+import Card from './Card'
 
 function Main({onEditProfile, onAddPlace, onEditAvatar}) {
     const [userName, setUserName] = React.useState('Жак Ив Кусто');
@@ -24,16 +25,7 @@ function Main({onEditProfile, onAddPlace, onEditAvatar}) {
                 throw err;
             });
 
-        // Список действий внутри одного хука
-
-
-        // Возвращаем функцию, которая удаляет эффекты
-        //return () => {
-       //
-       // };
     }, []);
-
-
 
     return(
         <main className="content">
@@ -51,23 +43,13 @@ function Main({onEditProfile, onAddPlace, onEditAvatar}) {
                 <button className="profile__add-button" type="button" onClick={onAddPlace}  aria-label="Добавить"/>
             </section>
             <section className="elements content__section">
-                {cards.map((item) => {
-                    return(
-                        <article className="card" key={item._id}>
-                            <div className="card__container">
-                                <button className="card__delete-icon" type="button" aria-label="Удалить" />
-                                <img className="card__image" src={item.link} alt={item.name}/>
-                            </div>
-                            <div className="card__caption">
-                                <h2 className="card__place-title">{item.name}</h2>
-                                <div className="card__like">
-                                    <button className="card__like-icon" type="button" aria-label="Нравится" />
-                                    <p className="card__like-amount">{item.likes.length}</p>
-                                </div>
-                            </div>
-                        </article>
-                    )
-                })}
+                {cards.map((card) => (
+                    <Card
+                        item={card}
+                        key={card._id}
+                    />
+                ))
+                }
             </section>
         </main>
     )
