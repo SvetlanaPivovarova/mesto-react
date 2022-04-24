@@ -12,8 +12,6 @@ function App() {
 
     const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false);
 
-
-
     function handleEditAvatarClick() {
         setIsEditAvatarPopupOpen(true);
     }
@@ -117,8 +115,6 @@ function App() {
         </PopupWithForm>
 
         <ImagePopup />
-
-
 
       <div className="popup popup_type_delete-card">
         <div className="popup__container">
