@@ -2,7 +2,7 @@ import React from 'react';
 import {api} from "../utils/api";
 import Card from './Card'
 
-function Main({onEditProfile, onAddPlace, onEditAvatar}) {
+function Main({onEditProfile, onAddPlace, onEditAvatar, onCardClick}) {
     const [userName, setUserName] = React.useState('Жак Ив Кусто');
     const [userDescription, setUserDescription] = React.useState('Исследователь океана');
     const [userAvatar, setUserAvatar] = React.useState('../images/image_kusto.jpg');
@@ -47,6 +47,7 @@ function Main({onEditProfile, onAddPlace, onEditAvatar}) {
                     <Card
                         item={card}
                         key={card._id}
+                        onCardClick={onCardClick}
                     />
                 ))
                 }

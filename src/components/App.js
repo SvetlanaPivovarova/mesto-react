@@ -12,6 +12,8 @@ function App() {
 
     const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false);
 
+    const [selectedCard, setSelectedCard] = React.useState(false);
+
     function handleEditAvatarClick() {
         setIsEditAvatarPopupOpen(true);
     }
@@ -28,6 +30,11 @@ function App() {
         setIsEditAvatarPopupOpen(false);
         setIsEditProfilePopupOpen(false);
         setIsAddPlacePopupOpen(false);
+        setSelectedCard(false);
+    }
+
+    const handleCardClick = (card) => {
+        setSelectedCard(card);
     }
 
     return (
@@ -37,6 +44,8 @@ function App() {
             onEditProfile={handleEditProfileClick}
             onAddPlace={handleAddPlaceClick}
             onEditAvatar={handleEditAvatarClick}
+
+            onCardClick={handleCardClick}
         />
         <Footer />
 
@@ -114,7 +123,7 @@ function App() {
           <span id="avatar-error" className="form__error" />
         </PopupWithForm>
 
-        <ImagePopup />
+        <ImagePopup card={selectedCard} onClose={closeAllPopups} />
 
       <div className="popup popup_type_delete-card">
         <div className="popup__container">
@@ -126,21 +135,6 @@ function App() {
         </div>
       </div>
 
-      <template id="card-template" className="card-template-default">
-        <article className="card">
-          <div className="card__container">
-            <button className="card__delete-icon" type="button" aria-label="Удалить" />
-            <img className="card__image" alt=""/>
-          </div>
-          <div className="card__caption">
-            <h2 className="card__place-title" />
-            <div className="card__like">
-              <button className="card__like-icon" type="button" aria-label="Нравится" />
-              <p className="card__like-amount" />
-            </div>
-          </div>
-        </article>
-      </template>
       </div>
   );
 }

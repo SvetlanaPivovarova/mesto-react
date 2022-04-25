@@ -1,11 +1,16 @@
 import React from 'react';
 
-function Card({item}) {
-        return(
+function Card({item, onCardClick}) {
+    const handleCardClick = () => {
+        onCardClick(item);
+    };
+    return(
             <article className="card" key={item._id}>
                 <div className="card__container">
                     <button className="card__delete-icon" type="button" aria-label="Удалить" />
-                    <img className="card__image" src={item.link} alt={item.name}/>
+                    <img className="card__image" src={item.link} alt={item.name}
+                         onClick={handleCardClick}
+                    />
                 </div>
                 <div className="card__caption">
                     <h2 className="card__place-title">{item.name}</h2>
