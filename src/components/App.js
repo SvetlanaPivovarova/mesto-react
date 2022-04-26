@@ -6,13 +6,13 @@ import PopupWithForm from "./PopupWithForm";
 import ImagePopup from "./ImagePopup";
 
 function App() {
-    const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = React.useState(false);
+    const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false);
 
-    const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
+    const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false);
 
-    const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false);
+    const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false);
 
-    const [selectedCard, setSelectedCard] = React.useState(false);
+    const [selectedCard, setSelectedCard] = useState({});
 
     function handleEditAvatarClick() {
         setIsEditAvatarPopupOpen(true);
@@ -30,7 +30,7 @@ function App() {
         setIsEditAvatarPopupOpen(false);
         setIsEditProfilePopupOpen(false);
         setIsAddPlacePopupOpen(false);
-        setSelectedCard(false);
+        setSelectedCard({});
     }
 
     const handleCardClick = (card) => {
@@ -50,9 +50,9 @@ function App() {
         <Footer />
 
         <PopupWithForm
-            name={'profile'}
-            title={'Редактировать профиль'}
-            submit={'Сохранить'}
+            name={"profile"}
+            title="Редактировать профиль"
+            submit="Сохранить"
             isOpen={isEditProfilePopupOpen? 'popup_opened' : ''}
             isClose={closeAllPopups}
         >
@@ -80,9 +80,9 @@ function App() {
         </PopupWithForm>
 
         <PopupWithForm
-            name={'card'}
-            title={'Новое место'}
-            submit={'Создать'}
+            name={"card"}
+            title="Новое место"
+            submit="Создать"
             isOpen={isAddPlacePopupOpen? 'popup_opened' : ''}
             isClose={closeAllPopups}
         >
@@ -107,9 +107,9 @@ function App() {
         </PopupWithForm>
 
         <PopupWithForm
-            name={'avatar'}
-            title={'Обновить аватар'}
-            submit={'Сохранить'}
+            name={"avatar"}
+            title="Обновить аватар"
+            submit="Сохранить"
             isOpen={isEditAvatarPopupOpen? 'popup_opened' : ''}
             isClose={closeAllPopups}
         >

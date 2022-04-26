@@ -5,7 +5,7 @@ function Card({item, onCardClick}) {
         onCardClick(item);
     };
     return(
-            <article className="card" key={item._id}>
+            <article className="card">
                 <div className="card__container">
                     <button className="card__delete-icon" type="button" aria-label="Удалить" />
                     <img className="card__image" src={item.link} alt={item.name}
