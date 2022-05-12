@@ -70,21 +70,22 @@ class Api {
         return this._makeRequest(promise);
     }
 
-    putLike(id) {
-        const promise = fetch((`${this._url}/cards/${id}/likes`), {
-            method: 'PUT',
-            headers: this._headers
-        });
-        return this._makeRequest(promise);
-    }
-
-    deleteLike(id) {
-        const promise = fetch((`${this._url}/cards/${id}/likes`), {
-            method: 'DELETE',
-            headers: this._headers,
-        });
-        return this._makeRequest(promise);
-    }
+    changeLikeCardStatus(id, isLiked) {
+        if (isLiked) {
+            const promise = fetch((`${this._url}/cards/${id}/likes`), {
+                method: 'PUT',
+                headers: this._headers
+            });
+            return this._makeRequest(promise);
+        }
+        else {
+            const promise = fetch((`${this._url}/cards/${id}/likes`), {
+                method: 'DELETE',
+                headers: this._headers,
+            });
+            return this._makeRequest(promise);
+        }
+}
 
     editAvatar(newAvatar) {
         const promise = fetch((`${this._url}/users/me/avatar`), {
