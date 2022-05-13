@@ -4,6 +4,7 @@ import Main from "./Main";
 import Footer from "./Footer";
 import PopupWithForm from "./PopupWithForm";
 import ImagePopup from "./ImagePopup";
+import EditProfilePopup from "./EditProfilePopup";
 import { api } from "../utils/api";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
@@ -66,35 +67,7 @@ function App() {
                 />
                 <Footer />
 
-                <PopupWithForm
-                    name={"profile"}
-                    title="Редактировать профиль"
-                    submit="Сохранить"
-                    isOpen={isEditProfilePopupOpen? 'popup_opened' : ''}
-                    isClose={closeAllPopups}
-                >
-                    <input
-                        type="text"
-                        placeholder="Имя"
-                        name="user"
-                        id="name"
-                        className="form__text form__text_type_name"
-                        required
-                        minLength="2"
-                        maxLength="40"
-                    />
-                    <span id="user-error" className="form__error"/>
-                    <input
-                        type="text"
-                        placeholder="О себе"
-                        name="about"
-                        className="form__text form__text_type_about"
-                        required
-                        minLength="2"
-                        maxLength="200"
-                    />
-                    <span id="about-error" className="form__error"/>
-                </PopupWithForm>
+                <EditProfilePopup isOpen={isEditProfilePopupOpen} onClose={closeAllPopups} />
 
                 <PopupWithForm
                     name={"card"}
