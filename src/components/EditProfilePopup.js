@@ -1,7 +1,25 @@
 import React from "react";
+import {CurrentUserContext} from "../contexts/CurrentUserContext";
 import PopupWithForm from "./PopupWithForm";
 
 function EditProfilePopup({isOpen, onClose}) {
+    const currentUser = React.useContext(CurrentUserContext);
+    const [name, setName] = React.useState();
+    const [description, setDescription] = React.useState();
+
+    React.useEffect(() => {
+        setName(currentUser.name);
+        setDescription(currentUser.about);
+    }, [currentUser]);
+
+    function handleChangeName(e) {
+        setName(e.target.value);
+    }
+
+    function handleChangeDescription(e) {
+        setDescription(e.target.value);
+    }
+
     return(
         <>
             <PopupWithForm
@@ -16,6 +34,8 @@ function EditProfilePopup({isOpen, onClose}) {
                     placeholder="Имя"
                     name="user"
                     id="name"
+                    value={name}
+                    onChange={handleChangeName}
                     className="form__text form__text_type_name"
                     required
                     minLength="2"
@@ -26,6 +46,8 @@ function EditProfilePopup({isOpen, onClose}) {
                     type="text"
                     placeholder="О себе"
                     name="about"
+                    value={description}
+                    onChange={handleChangeDescription}
                     className="form__text form__text_type_about"
                     required
                     minLength="2"
