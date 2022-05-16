@@ -35,14 +35,14 @@ class Api {
         return this._makeRequest(promise);
     }
 
-    createNewCard(newCard) {
+    createNewCard({ name, link, owner }) {
         const promise = fetch((`${this._url}/cards`), {
             method: 'POST',
             headers: this._headers,
             body: JSON.stringify({
-                name: newCard.name,
-                link: newCard.link,
-                owner: newCard.owner
+                name,
+                link,
+                owner
             })
         });
         return this._makeRequest(promise);
