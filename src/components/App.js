@@ -7,6 +7,7 @@ import ImagePopup from "./ImagePopup";
 import EditProfilePopup from "./EditProfilePopup";
 import { api } from "../utils/api";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
+import EditAvatarPopup from "./EditAvatarPopup";
 
 function App() {
     const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false);
@@ -69,6 +70,20 @@ function App() {
             });
     }
 
+    function handleUpdateAvatar(avatar) {
+        console.log(avatar);
+        api.editAvatar(avatar)
+            .then((newUser) => {
+                console.log(newUser)
+                setCurrentUser(newUser);
+                closeAllPopups();
+            })
+            .catch((err) => {
+                console.error(err);
+                throw err;
+            });
+    }
+
         return (
             <CurrentUserContext.Provider value={currentUser}>
                 <div className="page">
@@ -116,25 +131,13 @@ function App() {
                         <span id="link-error" className="form__error"/>
                     </PopupWithForm>
 
-                    <PopupWithForm
-                        name={"avatar"}
-                        title="Обновить аватар"
-                        submit="Сохранить"
-                        isOpen={isEditAvatarPopupOpen ? 'popup_opened' : ''}
-                        isClose={closeAllPopups}
+                    <EditAvatarPopup
+                        isOpen={isEditAvatarPopupOpen}
+                        onClose={closeAllPopups}
+                        onUpdateAvatar={handleUpdateAvatar}
+                    />
 
-                    >
-                        <input
-                            type="url"
-                            placeholder="Ссылка на новый аватар"
-                            name="avatar"
-                            className="form__text form__text_type_place-link"
-                            required
-                        />
-                        <span id="avatar-error" className="form__error"/>
-                    </PopupWithForm>
-
-                    <ImagePopup card={selectedCard} onClose={closeAllPopups}/>
+                    <ImagePopup card={selectedCard} onClose={closeAllPopups} />
 
                     <div className="popup popup_type_delete-card">
                         <div className="popup__container">
