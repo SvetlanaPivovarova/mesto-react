@@ -15,7 +15,6 @@ class Api {
             }
         })
             .then((result) => {
-                console.log(result);
                 return result;
             })
     }
@@ -57,16 +56,15 @@ class Api {
         return this._makeRequest(promise);
     }
 
-    editProfile(newUser) {
+    editProfile({name, about}) {
         const promise = fetch((`${this._url}/users/me`), {
             method: 'PATCH',
             headers: this._headers,
             body: JSON.stringify({
-                name: newUser.user,
-                about: newUser.about
+                name,
+                about
             })
         });
-        console.log(newUser);
         return this._makeRequest(promise);
     }
 
