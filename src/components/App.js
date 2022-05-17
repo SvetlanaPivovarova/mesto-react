@@ -50,8 +50,16 @@ function App() {
                 console.error(err);
                 throw err;
             });
-
-    }, []);
+        api.getInitialData()
+            .then((initialCards) => {
+                //отрисовка карточек
+                setCards(initialCards);
+            })
+            .catch((err) => {
+                console.error(err);
+                throw err;
+            });
+    },[]);
 
     function handleUpdateUser({name, about}) {
         console.log({name, about});
@@ -80,20 +88,7 @@ function App() {
                 throw err;
             });
     }
-
-    React.useEffect(() => {
-        api.getInitialData()
-            .then((initialCards) => {
-                //отрисовка карточек
-                setCards(initialCards);
-            })
-            .catch((err) => {
-                console.error(err);
-                throw err;
-            });
-
-    }, []);
-
+    
     function handleCardLike(card) {
         const isLiked = card.likes.some(i => i._id === currentUser._id);
 

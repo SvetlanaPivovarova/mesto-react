@@ -53,4 +53,4 @@
 Дополнительные сведения см. в разделе о развертывании [deployment](https://facebook.github.io/create-react-app/docs/deployment) .
 
 **Размещение проекта**
-* [Место](https://svetlanapivovarova.github.io/mesto/index.html)
+* [Место](https://svetlanapivovarova.github.io/mesto/index.htm

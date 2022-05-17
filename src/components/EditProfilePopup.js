@@ -31,7 +31,6 @@ function EditProfilePopup({isOpen, onClose, onUpdateUser}) {
     }
 
     return(
-        <>
             <PopupWithForm
                 name={"profile"}
                 title="Редактировать профиль"
@@ -66,7 +65,6 @@ function EditProfilePopup({isOpen, onClose, onUpdateUser}) {
                 />
                 <span id="about-error" className="form__error"/>
             </PopupWithForm>
-        </>
     )
 }
 
