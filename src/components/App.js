@@ -101,6 +101,10 @@ function App() {
         api.changeLikeCardStatus(card._id, !isLiked)
             .then((newCard) => {
                 setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
+            })
+            .catch((err) => {
+                console.error(err);
+                throw err;
             });
     }
 
@@ -109,6 +113,10 @@ function App() {
             .then((result) => {
                 setCards((state) => state.filter((c) => c._id !== card._id));
             })
+            .catch((err) => {
+                console.error(err);
+                throw err;
+            });
     }
 
     function handleAddPlaceSubmit({ name, link, owner }) {
